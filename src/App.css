@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=El+Messiri:wght@400..700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*{
+  margin:0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-size:16px;
+  font-family: "El Messiri", sans-serif;
+  font-optical-sizing: auto;
+  
+}
+
+.main-font {
+  font-family: "El Messiri", sans-serif;
+  font-optical-sizing: auto;
+}
+
+.swiper-button-next,.swiper-button-prev {
+  color:rgb(228, 228, 228) !important;
+  transform: scale(.8);
+}
+
+.shape-fill {
+  fill : #b91c1c;
+}
+
+.shadow-1 {
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+.swiper-pagination-bullet-active {
+  background-color:#e8cf99 !important;
+}
+
+.custom-bg {
+  background-size: 100% 100%;
+}
