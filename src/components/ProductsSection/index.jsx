@@ -62,7 +62,7 @@ function ProductsSection() {
                     <ProductCard
                       key={`product-${i}`}
                       url={`${formatImage(
-                        e.attributes.image.data.attributes.formats.small.url
+                        e.attributes.image.data.attributes.formats.thumbnail.url
                       )}`}
                       title={e.attributes.name}
                     />

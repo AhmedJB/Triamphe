@@ -1,0 +1,39 @@
+server {
+    listen      80;
+    server_name 45.133.178.108 triamphe-distribution.ma;
+
+    # Reverse proxy for /badm/ with rewrite to /admin/
+    location /badm/ {
+        proxy_pass http://localhost:8000/admin/;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+    }
+
+    # Reverse proxy for /backendapi/ with rewrite to /api/
+    location /backendapi/ {
+        proxy_pass http://localhost:8000/api/;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+    }
+
+    # Serve index.html for the root path (/)
+    location / {
+        root /var/www/source/Triamphe/dist;
+        index  index.html index.htm;
+        try_files $uri $uri/ =404;
+    }
+}
+
+server {
+    listen      8000;
+    server_name 45.133.178.108 triamphe-distribution.ma;
+    
+    location / {
+            proxy_pass http://localhost:8000;
+            proxy_http_version 1.1;
+            proxy_set_header Upgrade $http_upgrade;
+            proxy_set_header Connection 'upgrade';
+            proxy_set_header Host $host;
+            proxy_cache_bypass $http_upgrade;
+    }
+}
