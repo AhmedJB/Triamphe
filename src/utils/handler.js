@@ -28,3 +28,17 @@ axiosInstance.interceptors.request.use(
 export const formatImage = (p) => {
   return BASE_URL + p.replace("/uploads", "uploads");
 };
+
+export const SelectAndFormatImage = (o) => {
+  const tiers = ["large", "medium", "small", "thumbnail"];
+  let imgObj = null;
+  for (const t of tiers) {
+    imgObj = o[t];
+    if (imgObj) {
+      break;
+    } else {
+      continue;
+    }
+  }
+  return formatImage(imgObj.url);
+};

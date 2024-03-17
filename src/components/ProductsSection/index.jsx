@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from "react";
 import ProductCard from "./ProductCard";
-import { axiosInstance, formatImage } from "../../utils/handler";
+import {
+  SelectAndFormatImage,
+  axiosInstance,
+  formatImage,
+} from "../../utils/handler";
 import { API_URL } from "../../utils/constants";
 import QueryString from "qs";
 
@@ -55,14 +59,16 @@ function ProductsSection() {
             <h1 className={`text-black font-semibold text-[3rem] text-center`}>
               Nos Produits
             </h1>
-            <div className={`container flex flex-wrap gap-4 justify-center`}>
+            <div
+              className={`container flex flex-wrap gap-4 justify-center mx-auto`}
+            >
               {productsData.length > 0 &&
                 productsData.map((e, i) => {
                   return (
                     <ProductCard
                       key={`product-${i}`}
-                      url={`${formatImage(
-                        e.attributes.image.data.attributes.formats.thumbnail.url
+                      url={`${SelectAndFormatImage(
+                        e.attributes.image.data.attributes.formats
                       )}`}
                       title={e.attributes.name}
                     />
