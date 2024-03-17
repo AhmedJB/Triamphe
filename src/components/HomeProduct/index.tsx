@@ -18,7 +18,7 @@ function HomeProduct() {
                 <h1 className={`sm:text-[2rem] text-[1.1rem] text-center text-golden font-semibold tracking-[.2rem]`}>
                 la meilleure qualité!
                 </h1>
-                <Link to={`#`} className={`px-8 py-2 bg-black text-white rounded-xl text-[1.3rem] mt-4`}>
+                <Link to={`/products`} className={`px-8 py-2 bg-black text-white rounded-xl text-[1.3rem] mt-4`}>
                     Decouvrir
                 </Link>
             </div>

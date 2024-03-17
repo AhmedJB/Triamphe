@@ -1,8 +1,23 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Logo } from "../../assets/img";
-import { Link } from "react-router-dom";
+import { Link, useParams, useSearchParams } from "react-router-dom";
 
 function Header({ activeLink }) {
+  const [searchParams] = useSearchParams();
+  useEffect(() => {
+    const section = searchParams.get("section");
+    console.log(section);
+    if (section) {
+      switch (section) {
+        case "contact":
+          const s = document.getElementById("contact");
+          //s.scrollIntoView();
+          window.scrollTo(0, document.body.scrollHeight);
+          break;
+      }
+    }
+  }, [searchParams]);
+
   return (
     <>
       <div className={`w-full`}>
@@ -30,7 +45,7 @@ function Header({ activeLink }) {
             <li
               className={`font-semibold cursor-pointer hover:text-goldenLight hidden sm:block`}
             >
-              <a href={`/#contact`}>Contact</a>
+              <a href={`/?section=contact`}>Contact</a>
             </li>
           </ul>
         </nav>
